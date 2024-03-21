@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Video Ideas</title>
+</head>
+<body>
+    <h1>Generate Video Ideas for Personal Development</h1>
+    <form method="POST" action="/">
+        <input type="submit" value="Generate Ideas">
+    </form>
+    {% if video_ideas %}
+        <h2>Generated Video Ideas:</h2>
+        <ol>
+            {% for idea in video_ideas %}
+                <li>{{ idea }}</li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>Click the button above to generate video ideas.</p>
+    {% endif %}
+</body>
+</html>
