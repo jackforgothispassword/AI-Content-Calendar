@@ -11,7 +11,7 @@ def generate_video_ideas(niche):
     completion = client.completions.create(
         model="gpt-3.5-turbo-instruct",
         prompt=prompt,
-        max_tokens=100
+        max_tokens=1000
     )
 
     ideas = completion.choices[0].text.strip().split('\n')
