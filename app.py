@@ -6,7 +6,7 @@ app = Flask(__name__)
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_video_ideas(niche):
-    prompt = f"Generate video content ideas for a YouTube channel about {niche}."
+    prompt = f"Using knowledge of YouTube and successful videos on the platform, generate 10 video content ideas for a YouTube channel about {niche}."
 
     completion = client.completions.create(
         model="gpt-3.5-turbo-instruct",
