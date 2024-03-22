@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Generate Video Ideas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Generate Video Ideas for Personal Development</h1>
+    <h1>Generate Video Ideas</h1>
     <form method="POST" action="/">
+        <input type="text" name="niche" placeholder="Enter your niche" required>
         <input type="submit" value="Generate Ideas">
     </form>
     {% if video_ideas %}
-        <h2>Generated Video Ideas:</h2>
+        <h2>Generated Video Ideas for {{ niche }}:</h2>
         <ol>
             {% for idea in video_ideas %}
                 <li>{{ idea }}</li>
             {% endfor %}
         </ol>
     {% else %}
-        <p>Click the button above to generate video ideas.</p>
+        <p>Enter a niche and click "Generate Ideas" to start.</p>
     {% endif %}
 </body>
 </html>
