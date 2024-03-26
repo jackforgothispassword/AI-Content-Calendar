@@ -10,7 +10,7 @@
             margin: auto;
             padding: 20px;
         }
-        input[type="text"], input[type="submit"], textarea {
+        input[type="text"], input[type="submit"] {
             padding: 10px;
             margin: 10px 0;
             width: 100%;
@@ -27,10 +27,6 @@
     <h1>Generate Video Ideas</h1>
     <form method="POST" action="/">
         <input type="text" name="niche" placeholder="Enter your niche" required>
-        <input type="text" name="target_audience" placeholder="Target Audience" required>
-        <input type="text" name="content_type" placeholder="Content Type (e.g., tutorials, vlogs)" required>
-        <input type="text" name="tone_style" placeholder="Tone and Style (e.g., humorous, inspirational)" required>
-        <textarea name="unique_twist" placeholder="Unique Twist (what makes your channel special)" required></textarea>
         <input type="submit" value="Generate Ideas">
     </form>
     {% if video_ideas %}
