@@ -8,7 +8,7 @@ app = Flask(__name__)
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 #Generate video ideas using prompt
-def generate_video_ideas(niche):
+def generate_video_ideas(niche, target_audience):
     prompt = f"Using knowledge of YouTube and successful videos on the platform, generate 10 video content ideas for a YouTube channel about the {niche} niche, for the target audience of {target_audience}. Then add a new section with 5 example YouTubers to research for the proposed niche."
 
     # Specify model
