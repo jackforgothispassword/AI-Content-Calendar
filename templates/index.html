@@ -35,7 +35,7 @@
         <h2>Generated Video Ideas for the {{ niche }} niche and {{ target_audience }} target audience: </h2>
         <p>
             {% for idea in video_ideas %}
-               <li> {{ idea }} </li>
+               <ol>{{ idea }}</ol>
             {% endfor %}
         </p>
     {% else %}
