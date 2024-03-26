@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h1>Generate Video Ideas</h1>
+    <h1>Generate YouTube Video Ideas</h1>
     <form method="POST" action="/">
         <input type="text" name="niche" placeholder="Enter your niche" required>
         <input type="text" name="target_audience" placeholder="Enter your target audience" required>
@@ -34,11 +34,11 @@
         <h2>Generated Video Ideas for the {{ niche }} niche and {{ target_audience }} target audience: </h2>
         <p>
             {% for idea in video_ideas %}
-                <li>{{ idea }}</li>
+                {{ idea }}
             {% endfor %}
         </p>
     {% else %}
-        <p>Enter a niche and click "Generate Ideas" to start.</p>
+        <p>Enter a niche and target audience, then click "Generate Ideas" to start.</p>
     {% endif %}
 </body>
 </html>
