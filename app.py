@@ -9,7 +9,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 #Generate video ideas using prompt
 def generate_video_ideas(niche, target_audience):
-    prompt = f"Using knowledge of YouTube and successful videos on the platform, generate 10 video content ideas for a YouTube channel about the {niche} niche, for the target audience of {target_audience}. Then add a new section with 5 example YouTubers to research for the proposed niche. No preamble, immediately state the ideas and examples with no other text."
+    prompt = f"Using knowledge of YouTube and successful videos on the platform, generate 10 video content ideas for a YouTube channel about the {niche} niche, for the target audience of {target_audience}. Then add a new section with 5 example YouTubers to research for the proposed niche. Do not number the ideas in your output."
 
     # Specify model
     completion = client.completions.create(
