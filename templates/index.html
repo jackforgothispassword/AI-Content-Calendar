@@ -77,15 +77,15 @@
         <input type="submit" value="Generate Ideas">
     </form>
     {% if video_ideas %}
-        <h2>Video Ideas for the '{{ niche }}' niche and '{{ target_audience }}' target audience using your unfair_advantage of '{{ unfair_advantage }}': </h2>
-        <p>
-            {% for idea in video_ideas %}
-               <ol>{{ idea }}
-                   <!-- Button to add idea to the list -->
-                   <button onclick="addIdeaToList('{{ idea }}')">Add to My List</button>
-               </ol>
-            {% endfor %}
-        </p>
+    <h2>Video Ideas for the '{{ niche }}' niche and '{{ target_audience }}' target audience using your unfair_advantage of '{{ unfair_advantage }}': </h2>
+    <ol>
+        {% for idea in video_ideas %}
+           <li>{{ idea }}
+               <!-- Button to add idea to the list -->
+               <button type="button" onclick="addIdeaToList('{{ idea }}')">Add to My List</button>
+           </li>
+        {% endfor %}
+    </ol>
         <h2>My Video Ideas List:</h2>
             <ul id="userIdeasList">
                 <!-- Selected ideas will appear here -->
