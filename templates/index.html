@@ -32,14 +32,41 @@
         }
     </style>
     <script>
-        // Function to add idea to the list
-        function addIdeaToList(idea) {
+    // Function to add idea to the list and save to local storage
+    function addIdeaToList(idea) {
+        var list = document.getElementById("userIdeasList");
+        var entry = document.createElement('li');
+        entry.appendChild(document.createTextNode(idea));
+        list.appendChild(entry);
+        saveIdeas();
+    }
+
+    // Save the list to local storage
+    function saveIdeas() {
+        var ideas = [];
+        document.querySelectorAll("#userIdeasList li").forEach(function(idea) {
+            ideas.push(idea.innerText);
+        });
+        localStorage.setItem("userIdeas", JSON.stringify(ideas));
+    }
+
+    // Load the list from local storage
+    function loadIdeas() {
+        var ideas = JSON.parse(localStorage.getItem("userIdeas"));
+        if (ideas) {
             var list = document.getElementById("userIdeasList");
-            var entry = document.createElement('li');
-            entry.appendChild(document.createTextNode(idea));
-            list.appendChild(entry);
+            ideas.forEach(function(idea) {
+                var entry = document.createElement('li');
+                entry.appendChild(document.createTextNode(idea));
+                list.appendChild(entry);
+            });
         }
-    </script>
+    }
+
+    // When the document is fully loaded, load any saved ideas
+    document.addEventListener("DOMContentLoaded", loadIdeas);
+</script>
+
 </head>
 <body>
     <h1>Generate YouTube Video Ideas</h1>
