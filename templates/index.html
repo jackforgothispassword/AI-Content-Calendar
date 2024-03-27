@@ -31,6 +31,15 @@
             margin-bottom: 10px;
         }
     </style>
+    <script>
+        // Function to add idea to the list
+        function addIdeaToList(idea) {
+            var list = document.getElementById("userIdeasList");
+            var entry = document.createElement('li');
+            entry.appendChild(document.createTextNode(idea));
+            list.appendChild(entry);
+        }
+    </script>
 </head>
 <body>
     <h1>Generate YouTube Video Ideas</h1>
@@ -44,9 +53,16 @@
         <h2>Video Ideas for the '{{ niche }}' niche and '{{ target_audience }}' target audience using your unfair_advantage of '{{ unfair_advantage }}': </h2>
         <p>
             {% for idea in video_ideas %}
-               <ol>{{ idea }}</ol>
+               <ol>{{ idea }}
+                   <!-- Button to add idea to the list -->
+                   <button onclick="addIdeaToList('{{ idea }}')">Add to My List</button>
+               </ol>
             {% endfor %}
         </p>
+        <h2>My Video Ideas List:</h2>
+            <ul id="userIdeasList">
+                <!-- Selected ideas will appear here -->
+            </ul>
     {% else %}
         <p>Enter a niche, target audience, and your unfair advantage - then click "Generate Ideas" to start.</p>
     {% endif %}
